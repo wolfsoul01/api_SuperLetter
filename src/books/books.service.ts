@@ -5,9 +5,9 @@ import { Book } from 'src/Schema/book.schema';
 
 @Injectable()
 export class BooksService {
-  constructor(@InjectModel(Book.name) booksModel: Model<Book>) {}
+  constructor(@InjectModel(Book.name) private booksModel: Model<Book>) {}
 
   findAll() {
-    return ;
+    return this.booksModel.find();
   }
 }
