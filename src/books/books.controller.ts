@@ -1,5 +1,6 @@
-import { Controller, Get, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { BooksService } from './books.service';
+import { CreteBookDto } from './dto/bookDto';
 
 @Controller('books')
 export class BooksController {
@@ -10,4 +11,8 @@ export class BooksController {
     return this.booksService.findAll();
   }
 
+  @Post()
+  createBook(@Body() book: CreteBookDto) {
+    return this.booksService.create(book);
+  }
 }

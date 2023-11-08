@@ -25,6 +25,8 @@ export class Book {
 
   @Prop({ required: true })
   genere: string;
+  @Prop({ required: true, min: 1 })
+  pages: number;
 }
 
 export const BookSchema = SchemaFactory.createForClass(Book);
